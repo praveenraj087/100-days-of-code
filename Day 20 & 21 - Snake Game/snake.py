@@ -35,6 +35,13 @@ class Snake:
             self.all_tr[i].goto(new_x, new_y)
         self.head.fd(MOVE_DIST)
 
+    def reset(self):
+        for all_snake in self.all_tr:
+            all_snake.goto(1000, 1000)
+        self.all_tr.clear()
+        self.create_snake()
+        self.head = self.all_tr[0]
+
     def move_up(self):
         if(self.head.heading() != DOWN):
             self.head.setheading(90)
